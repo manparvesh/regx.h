@@ -3,18 +3,19 @@
 *********************************************************/
 
 #include <stdlib.h>
+#include <string.h>
 #include "regx.h"
 
 /*********************************************************
 *           Private methods declarations
 *********************************************************/
-bool match_one(char *pattern, char *text);
-
 bool match(char *pattern, char *text);
 
 bool match_at_beginning(char *pattern, char *text);
 
 bool match_star(int c, char *pattern, char *text);
+
+char *string_concat(const char *s1, const char *s2);
 
 /*********************************************************
 *           Public methods implementations
@@ -30,7 +31,10 @@ char **search_all(char *pattern, char *text) {
  * Search for all matches for a regex pattern in the text
  * */
 bool search(char *pattern, char *text) {
-
+    if (pattern[0] == '^') {
+        return match(pattern + 1, text);
+    }
+    return match(string_concat(".*", pattern), text);
 }
 
 /*********************************************************
@@ -48,25 +52,6 @@ bool match(char *pattern, char *text) {
     return false;
 }
 
-// todo complete/remove this method. will probably not be used
-bool match_one(char *pattern, char *text) {
-    if (pattern[0] == '\0') {
-        return true;
-    }
-    if (text[0] == '\0') {
-        return false;
-    }
-    if (pattern[0] == '*' && pattern[1] == '\n') {
-        return true;
-    }
-    if (pattern[0] == '$' && pattern[1] == '\n') {
-        return *text == '\0';
-    }
-    if (*text != '\0' && (pattern[0] == '.' || pattern[0] == *text))
-        return match_at_beginning(pattern + 1, text + 1);
-    return false;
-}
-
 bool match_at_beginning(char *pattern, char *text) {
     if (pattern[0] == '\0') {
         return true;
@@ -74,7 +59,7 @@ bool match_at_beginning(char *pattern, char *text) {
     if (pattern[1] == '*') {
         return match_star(pattern[0], pattern + 2, text);
     }
-    if (pattern[0] == '$' && pattern[1] == '\n') {
+    if (pattern[0] == '$' && pattern[1] == '\0') {
         return *text == '\0';
     }
     if (*text != '\0' && (pattern[0] == '.' || pattern[0] == *text))
@@ -89,4 +74,12 @@ bool match_star(int c, char *pattern, char *text) {
             return true;
     } while (*text != '\0' && (*text++ == c || c == '.'));
     return false;
+}
+
+char *string_concat(const char *s1, const char *s2) {
+    char *result = malloc(strlen(s1) + strlen(s2) + 1);//+1 for the null-terminator
+    //in real code you would check for errors in malloc here
+    strcpy(result, s1);
+    strcat(result, s2);
+    return result;
 }

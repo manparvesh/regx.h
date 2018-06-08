@@ -7,3 +7,14 @@
  
 </div>
 
+## Supported operations
+- `^` means starting with this character
+- `.` matches with any character
+- `$` means should end with this character
+
+## How to use
+Look at [tests/test.c](https://github.com/manparvesh/regx.h/blob/master/tests/test.c)
+
+## TODO
+- `search_all`: will get all matches from a text.
+- Groups
