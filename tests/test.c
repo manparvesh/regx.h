@@ -25,4 +25,28 @@ int main(){
     pattern = "jj$";
     text = "as34434jj";
     assert(search(pattern, text));
+
+    pattern = ".*j$";
+    text = "as34434jj";
+    assert(search(pattern, text));
+
+    pattern = ".*j";
+    text = "as34434jj";
+    assert(search(pattern, text));
+
+    pattern = "^a.*j$";
+    text = "as34434jj";
+    assert(search(pattern, text));
+
+    pattern = ".*j$";
+    text = "as34434jj";
+    assert(search(pattern, text));
+
+    pattern = "3.*j$";
+    text = "as34434jj";
+    assert(search(pattern, text));
+
+    pattern = ".*4";
+    text = "as34434jj";
+    assert(search(pattern, text));
 }
