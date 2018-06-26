@@ -5,13 +5,14 @@
   <a href="https://manparvesh.mit-license.org/" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=for-the-badge" alt="License"></a> 
 
   <p>Simple Regular Expression library written in C, inspired by <a href="https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html">this post<a></p>
-
 </div>
+
 
 ### Supported operators
 - `^` is the start anchor, matches the beginning of the string
 - `.` matches with any character
 - `$` matches end of string
+
 
 ### How to use
 ```c
