@@ -4,7 +4,11 @@
   <a href="https://travis-ci.org/manparvesh/regx.h/builds" target="_blank"><img src="https://img.shields.io/travis-ci/manparvesh/regx.h.svg?style=for-the-badge" alt="Build Status"></a> 
   <a href="https://manparvesh.mit-license.org/" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=for-the-badge" alt="License"></a> 
 
-  <p>Simple Regular Expression library written in C, inspired by <a href="https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html">this post<a></p>
+  <p>Simple Regular Expression library written in C, inspired by 
+  <a href="https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html">
+    this post
+  <a>
+  </p>
 </div>
 
 
