@@ -7,7 +7,7 @@
   <p>Simple Regular Expression library written in C, inspired by 
   <a href="https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html">
     this post
-  <a>
+  </a>
   </p>
 </div>
 
